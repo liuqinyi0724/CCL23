@@ -1,0 +1,2 @@
+encoder_model: ethanyt/guwenbert-large
+pad_token_id: 1
