@@ -1,0 +1,24 @@
+## 结果转为提交格式处理(processdata文件夹说明)
+# T2S.py
+将GuNER_train.txt中样本转为简体中文保存在 train_simplified.txt
+# 2BIO_BIOES.py
+将GuNER_train.txt和train_simplified.txt处理成conll2003格式（本实验使用bio标签体系）
+生成bio_train_t.conll和bio_train.conll(繁体与简体）
+# step3
+手动剪切最后500条数据作为验证集
+将bio_train_t.conll和bio_train.conll两个文件内容结合
+因此整个模型的训练集：bio_train_t + bio_train 去除最后500条；验证集：两个文件中的最后500条数据
+# step4
+模型训练完毕后会生成test_out.txt
+将test_out.txt内容复制到processdata/result.txt中
+# back.py
+将conll2003格式数据转为符合提交格式要求的文本
+
+## 外部数据说明（gazetteer_demo文件夹)
+# BOOK.txt
+殆知阁古代文献，简体+繁体版本连接
+# PER.txt
+使用哈工大LPT中NER工具识别出该仓库中的人名
+https://github.com/BangBOOM/Classical-Chinese
+# OFI.txt
+维基百科手动复制粘贴，将简体版本与繁体版本放在一起
