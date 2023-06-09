@@ -33,7 +33,7 @@ restext = []
 reslabels = []
 resiobes = []
 
-with open("GuNER2023_train.txt","r") as ori_text:
+with open("GuNER2023_train.txt","r") as ori_text: # with open("train_simplified.txt","r") as ori_text
     pretext = ori_text.readlines()
     for line in pretext:
         # 帝曰：「{玄龄|PER}、{如晦|PER}不以勋旧进，特其才可与治天下者，{师合|PER}欲以此离间吾君臣邪？」斥岭表。\n
@@ -83,19 +83,6 @@ with open("bio_train_t.conll","w") as line_train:
         text, label = restext[i], reslabels[i]
         assert len(text) == len(label)
         len2 = len(text)
-        for j in range(len2):
-            temp = text[j] + "\t" + label[j] + "\n"
-            line_train.writelines(temp)
-        line_train.writelines("\n")
-
-with open("bioes_train_t.conll","w") as line_train:
-    templen = len(restext)
-    for i in range(templen):
-        text, label = restext[i], reslabels[i]
-        assert len(text) == len(label)
-        len2 = len(text)
-        label = convert_iobes(label)
-        resiobes.append(label)
         for j in range(len2):
             temp = text[j] + "\t" + label[j] + "\n"
             line_train.writelines(temp)
