@@ -15,5 +15,5 @@ gazetteer_path=${base_dir}/gazetteer_demo/${LAN}
 model_name="ner_${LAN}"
 
 python -m train_model --train "$train_file" --dev "$dev_file" --gazetteer "$gazetteer_path" --out_dir "$OUT_DIR" \
-                      --max_length 256 --model_name "$model_name" --gpus 1 --epochs 20 --encoder_model "$ENCODER_MODEL" --batch_size 16 \
+                      --max_length 256 --model_name "$model_name" --gpus 1 --epochs 25 --encoder_model "$ENCODER_MODEL" --batch_size 16 \
                       --lr 0.00001
